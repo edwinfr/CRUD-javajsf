@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTblSampleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTblSampleLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{tblSampleController.selected.id}" title="#{bundle.CreateTblSampleTitle_id}" required="true" requiredMessage="#{bundle.CreateTblSampleRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateTblSampleLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{tblSampleController.selected.firstName}" title="#{bundle.CreateTblSampleTitle_firstName}" required="true" requiredMessage="#{bundle.CreateTblSampleRequiredMessage_firstName}"/>
+                    <h:outputLabel value="#{bundle.CreateTblSampleLabel_salary}" for="salary" />
+                    <h:inputText id="salary" value="#{tblSampleController.selected.salary}" title="#{bundle.CreateTblSampleTitle_salary}" required="true" requiredMessage="#{bundle.CreateTblSampleRequiredMessage_salary}"/>
+                    <h:outputLabel value="#{bundle.CreateTblSampleLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{tblSampleController.selected.email}" title="#{bundle.CreateTblSampleTitle_email}" required="true" requiredMessage="#{bundle.CreateTblSampleRequiredMessage_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tblSampleController.create}" value="#{bundle.CreateTblSampleSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tblSampleController.prepareList}" value="#{bundle.CreateTblSampleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTblSampleIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

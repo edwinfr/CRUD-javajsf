@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTblSampleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTblSampleLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{tblSampleController.selected.id}" title="#{bundle.EditTblSampleTitle_id}" required="true" requiredMessage="#{bundle.EditTblSampleRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditTblSampleLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{tblSampleController.selected.firstName}" title="#{bundle.EditTblSampleTitle_firstName}" required="true" requiredMessage="#{bundle.EditTblSampleRequiredMessage_firstName}"/>
+                    <h:outputLabel value="#{bundle.EditTblSampleLabel_salary}" for="salary" />
+                    <h:inputText id="salary" value="#{tblSampleController.selected.salary}" title="#{bundle.EditTblSampleTitle_salary}" required="true" requiredMessage="#{bundle.EditTblSampleRequiredMessage_salary}"/>
+                    <h:outputLabel value="#{bundle.EditTblSampleLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{tblSampleController.selected.email}" title="#{bundle.EditTblSampleTitle_email}" required="true" requiredMessage="#{bundle.EditTblSampleRequiredMessage_email}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{tblSampleController.update}" value="#{bundle.EditTblSampleSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTblSampleViewLink}"/>
+                <br />
+                <h:commandLink action="#{tblSampleController.prepareList}" value="#{bundle.EditTblSampleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTblSampleIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
